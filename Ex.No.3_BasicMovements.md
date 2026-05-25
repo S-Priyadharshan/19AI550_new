@@ -18,40 +18,39 @@
 ### Program 
 ```
 using UnityEngine;
+
 public class TransformOperations : MonoBehaviour
 {
-    public Transform object1; // Object for translation
-    public Transform object2; // Object for rotation
-    public Transform object3; // Object for scaling
+    public Transform object1;
+    public Transform object2;
+    public Transform object3;
 
-    public float moveSpeed = 2f;  // Speed of translation
-    public float rotateSpeed = 50f; // Speed of rotation
-    public float scaleSpeed = 0.5f; // Speed of scaling
+    public float moveSpeed = 2f;
+    public float rotateSpeed = 50f;
+    public float scaleSpeed = 0.5f;
 
     void Update()
     {
-        // Translate (Move) object1 along the X-axis- Time.deltaTime to make movement smooth across all frame rates
+        // Movement
         if (object1 != null)
         {
-           // object1.position += Vector3.right * moveSpeed;
-               object1.Translate(0.02f,0,0);
-
+            object1.position += Vector3.right * moveSpeed * Time.deltaTime;
         }
 
-        // Rotate object2 around the Y-axis
+        // Rotation
         if (object2 != null)
         {
-            //object2.Rotate(Vector3.up * rotateSpeed * Time.deltaTime);
-            //object2.Rotate(0,0.02f.0);
+            object2.Rotate(Vector3.up * rotateSpeed * Time.deltaTime);
         }
 
-        // Scale object3 up and down
+        // Scaling
         if (object3 != null)
         {
-           // float scaleChange = Mathf.PingPong(Time.time * scaleSpeed, 1f) + 0.5f; // generates a value that moves back and forth between 0 and length
-           // object3.localScale = new Vector3(scaleChange, scaleChange, scaleChange);
-            object3.localScale+=new Vector3(0.02f.0.02f,0);
+            float scaleChange =
+                Mathf.PingPong(Time.time * scaleSpeed, 1f) + 0.5f;
 
+            object3.localScale =
+                new Vector3(scaleChange, scaleChange, scaleChange);
         }
     }
 }
