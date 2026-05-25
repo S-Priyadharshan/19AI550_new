@@ -46,11 +46,7 @@ public class TransformOperations : MonoBehaviour
         // Scaling
         if (object3 != null)
         {
-            float scaleChange =
-                Mathf.PingPong(Time.time * scaleSpeed, 1f) + 0.5f;
-
-            object3.localScale =
-                new Vector3(scaleChange, scaleChange, scaleChange);
+            object3.localScale += new Vector3(0.01f, 0.01f, 0.01f);
         }
     }
 }
